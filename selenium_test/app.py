@@ -27,7 +27,10 @@ try:
   # timeout = 20
   # WebDriverWait(browser, timeout).until(EC.visibility_of_element_located((By.XPATH, "//img[@class='avatar width-full rounded-2']")))
   # # find_elements_by_xpath returns an array of selenium objects.
-  # titles_element = browser.find_elements_by_xpath("//a[@class='text-bold']")
+  # titles_element = browser.find_elements_by_xpath("//a[@class='text-bold']") 
+   
+  # nav = browser.find_element_by_id("mainnav")
+  # nav.text
 
   # # use list comprehension to get the actual repo titles and not the selenium objects.
   # titles = [x.text for x in titles_element]
