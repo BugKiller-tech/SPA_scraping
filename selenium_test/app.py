@@ -18,7 +18,7 @@ chrome_driver_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'ch
 
 browser = webdriver.Chrome(executable_path=chrome_driver_path, chrome_options=option) #replace with .Firefox(), or with the browser of your choice
 # browser = webdriver.Firefox()
-url = "https://www.onlinedoctor.ch/de/dermatologie-zurich/"
+url = "https://www.dietprobe.com/cabbage-soup-diet/"
 browser.get(url) #navigate to the page
 
 try:
