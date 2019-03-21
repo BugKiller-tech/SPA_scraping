@@ -30,10 +30,16 @@ def scrap_url(url):
     driver.implicitly_wait(30)
     print('end of implicity wait', datetime.datetime.now())
     driver.get(url) #navigate to the page
+    # time.sleep(2.5) #Wait for javscript to load in Selenium this doesn't needed now
     # source_code = driver.execute_script("return document.body.parentElement.outerHTML") #returns the inner HTML as a string
+    # source_code = driver.page_source.encode('utf-8')
+
     source_code = driver.page_source
     driver.close()
     write_to_file(source_code)
+    print(source_code)
+    keyword = u'glätteisen'
+    print('keyword count is', source_code.lower().count(keyword))
     print('completed scraping with headless browser')
   except TimeoutException:
     print("Timed out waiting for page to load")
@@ -41,7 +47,7 @@ def scrap_url(url):
     driver.quit()
 
 
-url = "https://bvopen.abrickis.me/#/standings"
+url = "https://www.glätteisen.info/"
 scrap_url(url)
 
 
