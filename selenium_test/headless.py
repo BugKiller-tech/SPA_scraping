@@ -25,7 +25,7 @@ chrome_driver_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'ch
 def scrap_url(url):
   try:
     options = selenium_options()
-    driver = webdriver.Chrome(executable_path=chrome_driver_path, chrome_options=options) #replace with .Firefox(), or with the driver of your choice
+    driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options) #replace with .Firefox(), or with the driver of your choice
     print('implicity wait', datetime.datetime.now())
     driver.implicitly_wait(30)
     print('end of implicity wait', datetime.datetime.now())
@@ -37,17 +37,13 @@ def scrap_url(url):
     source_code = driver.page_source
     driver.close()
     write_to_file(source_code)
-    print(source_code)
-    keyword = u'glätteisen'
-    print('keyword count is', source_code.lower().count(keyword))
+    driver.quit()
     print('completed scraping with headless browser')
   except TimeoutException:
     print("Timed out waiting for page to load")
-  finally:
-    driver.quit()
 
 
-url = "https://www.glätteisen.info/"
+url = "https://intersport.com.au/"
 scrap_url(url)
 
 

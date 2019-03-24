@@ -11,8 +11,12 @@ from selenium.common.exceptions import TimeoutException
 
 
 
-option = webdriver.ChromeOptions()
-option.add_argument("--incognito")
+def selenium_options():
+  options = webbrowser.ChromeOptions()
+  options.add_argument("--incognito")
+  return options
+
+options = selenium_options()
 chrome_driver_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'chromedrivers/mac/chromedriver'))
 
 
