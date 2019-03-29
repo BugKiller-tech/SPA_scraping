@@ -9,24 +9,29 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC 
 from selenium.common.exceptions import TimeoutException
 
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
-
-def selenium_options():
-  options = webbrowser.ChromeOptions()
-  options.add_argument("--incognito")
+def selenium_chrome_options():
+  options = webdriver.ChromeOptions()
+  options.headless = True
+  return options
+def selenium_firefox_options():
+  options = FirefoxOptions()
+  options.headless = True
   return options
 
-options = selenium_options()
+chrome_options = selenium_chrome_options()
 chrome_driver_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'chromedrivers/mac/chromedriver'))
+browser = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options) #replace with .Firefox(), or with the browser of your choice
 
+# firefox_options = selenium_firefox_options()
+# firefox_driver_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'firefoxdrivers/mac/geckodriver'))
+# browser = webdriver.Firefox(executable_path=firefox_driver_path, options=firefox_options)
 
-browser = webdriver.Chrome(executable_path=chrome_driver_path, chrome_options=option) #replace with .Firefox(), or with the browser of your choice
-# browser = webdriver.Firefox()
 url = "https://www.dietprobe.com/cabbage-soup-diet/"
 browser.get(url) #navigate to the page
 
 try:
-
   # Wait 20 seconds for page to load
   # timeout = 20
   # WebDriverWait(browser, timeout).until(EC.visibility_of_element_located((By.XPATH, "//img[@class='avatar width-full rounded-2']")))

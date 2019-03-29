@@ -18,7 +18,10 @@ def write_to_file(source_code):
 
 def selenium_options():
   options = webdriver.ChromeOptions()
-  options.add_argument('headless')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--headless')
+  options.add_argument("--disable-dev-shm-usage") # overcome limited resource problems
+  options.setExperimentalOption("s", False);
   return options
 
 chrome_driver_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'chromedrivers/mac/chromedriver'))
