@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "02286ccfd283337316c3507fa459d8928f5f080e61b67a9592f88c04d68714cb"
+            "sha256": "14fa9362559026b5d942ba85df6550fc520547da3877991a15c8d4a7cd4612f9"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,23 @@
         ]
     },
     "default": {
+        "backports.functools-lru-cache": {
+            "hashes": [
+                "sha256:9d98697f088eb1b0fa451391f91afb5e3ebde16bbdb272819fd091151fda4f1a",
+                "sha256:f0b0e4eba956de51238e17573b7087e852dfe9854afd2e9c873f73fc0ca0a6dd"
+            ],
+            "markers": "python_version < '3'",
+            "version": "==1.5"
+        },
+        "beautifulsoup4": {
+            "hashes": [
+                "sha256:034740f6cb549b4e932ae1ab975581e6103ac8f942200a0e9759065984391858",
+                "sha256:945065979fb8529dd2f37dbb58f00b661bdbcbebf954f93b32fdf5263ef35348",
+                "sha256:ba6d5c59906a85ac23dadfe5c88deaf3e179ef565f4898671253e50a78680718"
+            ],
+            "index": "pypi",
+            "version": "==4.7.1"
+        },
         "selenium": {
             "hashes": [
                 "sha256:2d7131d7bc5a5b99a2d9b04aaf2612c411b03b8ca1b1ee8d3de5845a9be2cb3c",
@@ -24,12 +41,19 @@
             "index": "pypi",
             "version": "==3.141.0"
         },
+        "soupsieve": {
+            "hashes": [
+                "sha256:6898e82ecb03772a0d82bd0d0a10c0d6dcc342f77e0701d0ec4a8271be465ece",
+                "sha256:b20eff5e564529711544066d7dc0f7661df41232ae263619dede5059799cdfca"
+            ],
+            "version": "==1.9.1"
+        },
         "urllib3": {
             "hashes": [
-                "sha256:61bf29cada3fc2fbefad4fdf059ea4bd1b4a86d2b6d15e1c7c0b582b9752fe39",
-                "sha256:de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+                "sha256:a53063d8b9210a7bdec15e7b272776b9d42b2fd6816401a0d43006ad2f9902db",
+                "sha256:d363e3607d8de0c220d31950a8f38b18d5ba7c0830facd71a1c6b1036b7ce06c"
             ],
-            "version": "==1.24.1"
+            "version": "==1.25.2"
         }
     },
     "develop": {}

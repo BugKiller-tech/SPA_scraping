@@ -21,7 +21,6 @@ def selenium_options():
   options.add_argument('--no-sandbox')
   options.add_argument('--headless')
   options.add_argument("--disable-dev-shm-usage") # overcome limited resource problems
-  options.setExperimentalOption("s", False);
   return options
 
 chrome_driver_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'chromedrivers/mac/chromedriver'))
@@ -46,7 +45,7 @@ def scrap_url(url):
     print("Timed out waiting for page to load")
 
 
-url = "https://intersport.com.au/"
+url = "https://www.forrentuniversity.com/The-University-of-Iowa"
 scrap_url(url)
 
 

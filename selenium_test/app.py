@@ -11,9 +11,18 @@ from selenium.common.exceptions import TimeoutException
 
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
+from bs4 import BeautifulSoup
+
+
+
 def selenium_chrome_options():
   options = webdriver.ChromeOptions()
-  options.headless = True
+  options.add_argument('--no-sandbox')
+  options.add_argument('--headless')
+  options.add_argument("--disable-dev-shm-usage") # overcome limited resource problems
+  options.add_argument('--disable-gpu')
+  options.add_argument('--window-size=1920, 1080')
+  options.add_argument('user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36')
   return options
 def selenium_firefox_options():
   options = FirefoxOptions()
@@ -28,7 +37,9 @@ browser = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_op
 # firefox_driver_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'firefoxdrivers/mac/geckodriver'))
 # browser = webdriver.Firefox(executable_path=firefox_driver_path, options=firefox_options)
 
-url = "https://www.dietprobe.com/cabbage-soup-diet/"
+# url = "https://www.dunelm.com/category/home-and-furniture/cook-and-dine/dining-and-tableware/glassware#facet?scroll=2030&pageSize=wide"
+url = "http://www.forrentuniversity.com/The-University-of-Iowa"
+
 browser.get(url) #navigate to the page
 
 try:
@@ -49,6 +60,8 @@ try:
 
 
   source_code = browser.execute_script("return document.body.parentElement.outerHTML") #returns the inner HTML as a string
+  print('scrapped and saved..')
+  print(source_code)
   file = codecs.open("scraped.html", "w", "utf-8")
   file.write(source_code)
   file.close()
